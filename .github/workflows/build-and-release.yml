@@ -120,10 +120,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/v') || github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || format('v2.5.0-{0}', github.run_number) }}
-          name: ${{ format('BlazeNxt Antigravity for Android v2.5.0 (Build #{0})', github.run_number) }}
-          draft: ${{ github.event.inputs.draft || false }}
-          prerelease: ${{ github.event.inputs.prerelease || false }}
+          tag_name: v2.5.0-${{ github.run_number }}
+          name: "BlazeNxt Antigravity for Android v2.5.0 (Build #${{ github.run_number }})"
           make_latest: true
           files: |
             dist/antigravity.apk

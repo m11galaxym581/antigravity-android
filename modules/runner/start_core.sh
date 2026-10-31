@@ -11,10 +11,14 @@ if [ -n "${AGY_APPLICATION_ID:-}" ]; then
     APP_ID="$AGY_APPLICATION_ID"
 elif [ -n "${HOME:-}" ] && [[ "$HOME" =~ /data/user/0/([^/]+) ]]; then
     APP_ID="${BASH_REMATCH[1]}"
+elif [ -d "/data/user/0/com.blazenxt.antigravity" ]; then
+    APP_ID="com.blazenxt.antigravity"
+elif [ -d "/data/user/0/com.blazenxt.antigravity.dev" ]; then
+    APP_ID="com.blazenxt.antigravity.dev"
 elif [ -d "/data/user/0/com.agy.dev" ]; then
     APP_ID="com.agy.dev"
 else
-    APP_ID="com.agy"
+    APP_ID="com.blazenxt.antigravity"
 fi
 
 APP_BASE="/data/user/0/$APP_ID"
